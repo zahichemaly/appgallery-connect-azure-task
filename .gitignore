@@ -1,0 +1,5 @@
+buildandreleasetask/.taskkey
+*.js
+buildandreleasetask/node_modules/
+buildandreleasetask/package-lock.json
+buildandreleasetask/tsconfig.json

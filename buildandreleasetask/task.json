@@ -1,0 +1,47 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Microsoft/azure-pipelines-task-lib/master/tasks.schema.json",
+    "id": "{{taskguid}}",
+    "name": "{{taskname}}",
+    "friendlyName": "{{taskfriendlyname}}",
+    "description": "{{taskdescription}}",
+    "helpMarkDown": "",
+    "category": "Utility",
+    "author": "{{taskauthor}}",
+    "version": {
+        "Major": 1,
+        "Minor": 0,
+        "Patch": 0
+    },
+    "instanceNameFormat": "Echo $(appId)",
+    "inputs": [
+        {
+            "name": "appId",
+            "type": "string",
+            "label": "App ID",
+            "defaultValue": "",
+            "required": true,
+            "helpMarkDown": "ID of the App in AppGallery Connect"
+        },
+        {
+            "name": "clientId",
+            "type": "string",
+            "label": "Connect API Client ID",
+            "defaultValue": "",
+            "required": true,
+            "helpMarkDown": "Client ID of AppGallery Connect API"
+        },
+        {
+            "name": "clientSecret",
+            "type": "string",
+            "label": "Connect API Client secret",
+            "defaultValue": "",
+            "required": true,
+            "helpMarkDown": "Client secret of AppGallery Connect API"
+        }
+    ],
+    "execution": {
+        "Node10": {
+            "target": "index.js"
+        }
+    }
+}
