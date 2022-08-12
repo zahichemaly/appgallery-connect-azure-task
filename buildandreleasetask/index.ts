@@ -8,8 +8,9 @@ async function run() {
         const appId: string | undefined = tl.getInput('appId', true);
         const clientId: string | undefined = tl.getInput('clientId', true);
         const clientSecret: string | undefined = tl.getInput('clientSecret', true);
+        const filePath: string | undefined = tl.getInput('filePath', true);
 
-        if (appId == 'bad' || clientId == 'bad' || clientSecret == 'bad') {
+        if (appId == 'bad' || clientId == 'bad' || clientSecret == 'bad' || filePath == 'bad') {
             tl.setResult(tl.TaskResult.Failed, 'Bad input was given');
             return;
         }
@@ -17,7 +18,8 @@ async function run() {
         let inputs: Inputs = {
             appId: appId ?? "",
             clientId: clientId ?? "",
-            clientSecret: clientSecret ?? ""
+            clientSecret: clientSecret ?? "",
+            filePath: filePath ?? ""
         }
         await api.start(inputs);
     }

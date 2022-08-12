@@ -2,6 +2,7 @@ export interface Inputs {
     appId: string,
     clientId: string,
     clientSecret: string,
+    filePath: string,
 }
 
 export interface LoginPayload {
@@ -15,11 +16,40 @@ export interface LoginResponse {
     expires_in: string,
 }
 
-export interface UploadUrlResponse {
+export interface BaseResponse {
     ret: {
         code: number,
         msg: string
     },
+}
+
+export interface UploadUrlResponse extends BaseResponse {
     uploadUrl: string,
     authCode: string,
+}
+
+export interface UploadFileResponse {
+    result: {
+        UploadFileRsp: {
+            fileInfoList: Array<FileInfo>,
+            ifSuccess: number
+        },
+        resultCode: string
+    }
+}
+
+export interface FileInfo {
+    disposableURL: string,
+    fileDestUlr: string,
+    size: number
+}
+
+export interface FileUploadPayload {
+    lang: string,
+    fileType: number,
+    files: {
+        fileName: string,
+        fileDestUrl: string,
+        size: string
+    }
 }

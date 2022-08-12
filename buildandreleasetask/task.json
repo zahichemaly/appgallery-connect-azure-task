@@ -1,18 +1,18 @@
 {
     "$schema": "https://raw.githubusercontent.com/Microsoft/azure-pipelines-task-lib/master/tasks.schema.json",
     "id": "{{taskguid}}",
-    "name": "{{taskname}}",
-    "friendlyName": "{{taskfriendlyname}}",
-    "description": "{{taskdescription}}",
+    "name": "AppGalleryConnectRelease",
+    "friendlyName": "AppGallery Connect - Release",
+    "description": "Release an app to Huawei AppGallery Connect",
     "helpMarkDown": "",
-    "category": "Utility",
-    "author": "{{taskauthor}}",
+    "category": "Deploy",
+    "author": "Zahi Chemaly",
     "version": {
-        "Major": 1,
-        "Minor": 0,
+        "Major": 0,
+        "Minor": 1,
         "Patch": 0
     },
-    "instanceNameFormat": "Echo $(appId)",
+    "instanceNameFormat": "Submit $(appId) to AppGallery Connect",
     "inputs": [
         {
             "name": "appId",
@@ -37,6 +37,14 @@
             "defaultValue": "",
             "required": true,
             "helpMarkDown": "Client secret of AppGallery Connect API"
+        },
+        {
+            "name": "filePath",
+            "type": "string",
+            "label": "Path to .aab file",
+            "defaultValue": "",
+            "required": true,
+            "helpMarkDown": "Path to .aab file"
         }
     ],
     "execution": {
